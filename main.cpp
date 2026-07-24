@@ -1,6 +1,6 @@
 #include <iostream>
 using namespace std;
-
+// updated
 int main() {
     int firstNumber, secondNumber;
 
