@@ -1,0 +1,5 @@
+{
+  "scripts": {
+    "run": "g++ -std=c++20 -Wall -Wextra main.cpp -o main.exe && main.exe"
+  }
+}
