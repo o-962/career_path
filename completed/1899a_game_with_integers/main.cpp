@@ -3,8 +3,7 @@ using namespace std;
 
 int main()
 {
-  // freopen("input.txt", "r", stdin);
-
+  freopen("input.txt", "r", stdin);
 
   int t;
   cin >> t;
@@ -13,19 +12,46 @@ int main()
   {
     int n;
     cin >> n;
-    bool vovaWin = 
-    n % 3 == 0 && 
-    (n-1 % 3 != 0) &&
-    (n+1 % 3 != 0)
-    ;
-    if (vovaWin)
+
+    int i = 0;
+    vector<int> arr = {};
+    while (i != n)
     {
-      cout << "Second" << endl;
+      int x;
+      cin >> x;
+      arr.push_back(x);
+      i++;
     }
-    else {
-      cout << "First" << endl;
+
+    i = 1;
+    bool t = false;
+    while (i != n && i+1 != n)
+    {
+      bool even = (i+1) % 2;
+      cout << even &&
+        arr[i] > arr[i+1] && arr[i] > arr[i-1]  << endl;
+      if (
+        even &&
+        arr[i] > arr[i+1] && arr[i] > arr[i-1]
+      )
+      {
+        t = true;
+      }
+      else if (arr[i+1] > arr[i] && arr[i] > arr[i-1])
+      {
+        t = true;
+      }
+      else {
+        t = false;
+        cout << "No" << endl;
+        break;
+      }
+      i++;
     }
-    
+    if (t)
+    {
+      cout << "Yes" << endl;
+    }
     
   }
   return 0;
