@@ -3,40 +3,29 @@ using namespace std;
 
 int main()
 {
+  // freopen("input.txt", "r", stdin);
+
 
   int t;
   cin >> t;
 
   while (t--)
   {
-    string str;
-    int size;
-    cin >> size;
-    cin >> str;
-
-    bool troubleDotExists;
-    int dotCounter = 0;
-    bool f = false;
-    for (int i = 0; i < size; i++)
+    int n;
+    cin >> n;
+    bool vovaWin = 
+    n % 3 == 0 && 
+    (n-1 % 3 != 0) &&
+    (n+1 % 3 != 0)
+    ;
+    if (vovaWin)
     {
-      if (i >= 2)
-      {
-        if (str[i] == '.' && str[i - 1] == '.' && str[i - 2] == '.')
-        {
-          cout << 2 << endl;
-          f = true;
-          break;
-        }
-      }
-      if (str[i] == '.')
-      {
-        dotCounter++;
-      }
+      cout << "Second" << endl;
     }
-    if (!f)
-    {
-      cout << dotCounter << endl;
+    else {
+      cout << "First" << endl;
     }
+    
     
   }
   return 0;
