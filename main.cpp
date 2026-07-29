@@ -1,11 +1,45 @@
-#include <iostream>
+#include <bits/stdc++.h>
 using namespace std;
-// updated
-int main() {
-    int firstNumber, secondNumber;
-    cout << "test" << endl;
-    cout << "Enter two numbers: ";
-    cin >> firstNumber >> secondNumber;
-    cout << "Sum = " << firstNumber + secondNumber << '\n';
-    return 0;
+
+int main()
+{
+  freopen("input.txt", "r", stdin);
+
+
+  int t;
+  cin >> t;
+
+  while (t--)
+  {
+    int n, x;
+    cin >> n >> x;
+
+    vector<int> arr(n + 2);
+
+    arr[0] = 0;
+    arr[n + 1] = x;
+
+    for (int i = 1; i <= n; i++)
+    {
+      cin >> arr[i];
+    }
+
+    int maxDiff = 0;
+
+    for (int i = 1; i <= n + 1; i++)
+    {
+      int diff = arr[i] - arr[i - 1];
+
+      if (i == n + 1)
+      {
+        diff *= 2;
+      }
+
+      maxDiff = max(maxDiff, diff);
+    }
+    cout << maxDiff << endl;
+    
+  }
+
+  return 0;
 }
