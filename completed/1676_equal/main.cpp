@@ -5,25 +5,22 @@ int main()
 {
   freopen("input.txt", "r", stdin);
 
-  int t;
-  int n, a;
-  cin >> t;
-  while (t--)
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  int total = 0;
+  for (int i = 0; i < n; i++){
+    cin >> a[i];
+    total += a[i];
+  }
+  
+  sort(a.begin(), a.end());
+  reverse(a.begin(),a.end());
+
+  int taken = 0;
+
+  for (int i = 0; i < n; i++)
   {
-    cin >> n;
-    vector<int> a(n);
-    for (int i = 0; i < n; i++)
-      cin >> a[i];
-    int sm = 0;
-    int min = a[0];
-    for (int i = 0; i < n; i++)
-    {
-      if (a[i] < min) min = a[i];
-      
-      sm += a[i];
-    }
-    int ans = sm - n * min;
-    cout << ans << endl;
   }
   return 0;
 }
