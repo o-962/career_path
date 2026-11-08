@@ -6,53 +6,24 @@ int main()
   freopen("input.txt", "r", stdin);
 
   int t;
+  int n, a;
   cin >> t;
-
   while (t--)
   {
-    int n;
     cin >> n;
-
-    int i = 0;
-    vector<int> arr = {};
-    while (i != n)
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+      cin >> a[i];
+    int sm = 0;
+    int min = a[0];
+    for (int i = 0; i < n; i++)
     {
-      int x;
-      cin >> x;
-      arr.push_back(x);
-      i++;
+      if (a[i] < min) min = a[i];
+      
+      sm += a[i];
     }
-
-    i = 1;
-    bool t = false;
-    while (i != n && i+1 != n)
-    {
-      bool even = (i+1) % 2;
-      cout << even &&
-        arr[i] > arr[i+1] && arr[i] > arr[i-1]  << endl;
-      if (
-        even &&
-        arr[i] > arr[i+1] && arr[i] > arr[i-1]
-      )
-      {
-        t = true;
-      }
-      else if (arr[i+1] > arr[i] && arr[i] > arr[i-1])
-      {
-        t = true;
-      }
-      else {
-        t = false;
-        cout << "No" << endl;
-        break;
-      }
-      i++;
-    }
-    if (t)
-    {
-      cout << "Yes" << endl;
-    }
-    
+    int ans = sm - n * min;
+    cout << ans << endl;
   }
   return 0;
 }
